@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Title</title>
+  <style>
+  
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+/* Colors */
+:root {
+  --black: #212121;
+  --white: #efefef;
+  --pearl: #fff;
+  --purple: #e8d1f6;
+  --blue: #29639c;
+  --green: #00BCD4;
+  --pink: #b73b3b;
+}
+
+/* General Styles */
+* {
+  box-sizing: border-box;
+  cursor: none;
+}
+
+html,
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  height: 100%;
+}
+
+::selection {
+  background: var(--white);
+  color: var(--black);
+  mix-blend-mode: difference;
+}
+
+::-moz-selection {
+  background: var(--white);
+  color: var(--black);
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.hero-title {
+  font-size: 7vw;
+  line-height: 1.2em;
+  font-weight: 900;
+    position: relative;
+  top: -170px; /* Adjust as needed */
+  text-align: center;
+ 
+}
+
+.nav-title {
+  font-size: 4em;
+}
+
+a {
+  transition: all .25s ease-in-out;
+}
+
+/* Text Colors */
+.white,
+a.white {
+  color: var(--white);
+}
+
+.black {
+  color: var(--black);
+}
+
+.pearl,
+a.pearl {
+  color: var(--pearl);
+}
+
+.green,
+a.green {
+  color: var(--green);
+}
+
+.pink {
+  color: var(--pink);
+}
+
+.blend {
+  mix-blend-mode: difference !important;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+}
+
+/* Background Colors */
+.bg-black {
+  background-color: var(--black);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.bg-topographic {
+  background-image: url(https://assets.codepen.io/319606/bg-topographic.svg);
+  background-size: 5000px;
+  opacity: .1;
+  pointer-events: none;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--green);
+  transition: transform 350ms ease;
+  transform: translate(-50%, -50%) scale(.3);
+  z-index: 1000;
+}
+
+.custom-cursor--link {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+/* Header Styles */
+.swoosh {
+  background-image: url('https://assets.codepen.io/319606/2023-logo-swoosh.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 20px;
+  left: 18px;
+  width: 230px;
+  height: 45px;
+  z-index: 1000;
+  background-position: left;
+}
+
+.sticky-nav {
+  top: 20px;
+  left: 20px;
+  position: fixed;
+  width: calc(100% - 40px);
+  z-index: 999;
+}
+
+.sticky-nav.difference {
+  background-repeat: no-repeat;
+  background-size: contain;
+  mix-blend-mode: difference;
+}
+
+.logo {
+  width: 220px;
+  height: 45px;
+  background-image: url(https://assets.codepen.io/319606/2023-logo-white.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: left;
+  z-index: 998;
+}
+
+#nav-btn {
+  width: 60px;
+  z-index: 999;
+  filter: invert(1);
+}
+
+#nav-btn .icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #fff;
+}
+
+/* Takeover Navigation */
+#takeover-nav {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  left: 0;
+  top: -200%;
+  transition: all .5s ease-in-out;
+  z-index: 996;
+}
+
+#takeover-nav.shown {
+  top: 0;
+}
+
+.nav-col {
+  min-height: 100vh;
+}
+
+#takeover-nav .nav-col a {
+  color: var(--white);
+}
+
+#takeover-nav .nav-col a:hover {
+  color: var(--black);
+}
+
+.nav-contact .content {
+  max-width: 700px;
+}
+
+.nav-items {
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.contact-items {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.contact-items a:hover {
+  color: var(--green);
+}
+
+.social {
+  font-size: .75em;
+}
+
+.social a {
+  color: var(--green);
+}
+
+.social a:hover {
+  color: var(--white);
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+  bottom: 0;
+  height: 50%;
+  background: -moz-linear-gradient(top,  rgba(33,33,33,0) 0%, rgba(33,33,33,1) 50%);
+  background: -webkit-linear-gradient(top,  rgba(33,33,33,0) 0%,rgba(33,33,33,1) 50%);
+  background: linear-gradient(to bottom,  rgba(33,33,33,0) 0%,rgba(33,33,33,1) 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00212121', endColorstr='#212121',GradientType=0 );
+  z-index: 1;
+  border-bottom-right-radius: 15vw;
+  pointer-events: none;
+}
+
+/* Video Wrap */
+.video-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-bottom-right-radius: 15vw;
+  pointer-events: none;
+}
+
+/* Video Background */
+#video-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+  transform: rotate(180deg);
+}
+
+/* Section Styles */
+section {
+  min-height: 800px;
+  height: 800px;
+  width: 100%;
+}
+
+/* Hero Section */
+section.hero {
+  background-color: var(--black);
+  border-bottom-right-radius: 15vw;
+  position: relative;
+}
+
+section.hero:before {
+  content: "";
+  background-color: var(--black);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 15vw;
+  height: 15vw;
+}
+
+section.hero:after {
+  content: "";
+  background-color: var(--white);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 15vw;
+  height: 15vw;
+  border-top-left-radius: 15vw;
+}
+
+/* Other Sections */
+section.two {
+  background-color: var(--white);
+}
+
+section.three {
+  background-color: var(--purple);
+}
+
+section.four {
+  background-color: var(--green);
+}
+
+section.five {
+  background-color: var(--blue);
+}
+
+/* Media Queries */
+@media screen and (min-width: 1200px) {
+  .hero {
+    height: 75vh;
+  }
+  
+  .hero #video-bg {
+    object-position: 0 5vw;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .hero #video-bg {
+    object-position: 0 15vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #takeover-nav .nav-menu {
+    min-height: 500px;
+  }
+  
+  #takeover-nav .nav-menu a {
+    color: var(--black);
+  }
+  
+  #takeover-nav .nav-menu a:hover {
+    color: var(--white);
+  }
+  
+  #takeover-nav .nav-contact {
+    min-height: 600px;
+  }
+  
+  #takeover-nav .nav-contact .nav-title {
+    font-size: 2.5em;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  header .swoosh {
+    width: 165px;
+    height: 35px;
+    top: 10px;
+  }
+  
+  header .sticky-nav {
+    top: 10px;
+  }
+  
+  header .sticky-nav .logo {
+    width: 150px;
+    height: 35px;
+  }
+  
+  header #nav-btn {
+    width: 40px;
+  }
+  
+  #takeover-nav .contact-items {
+    font-size: 1em;
+  }
+  
+  .hero {
+    min-height: 600px;
+    height: 600px;
+  }
+  
+  .hero .hero-title {
+    font-size: 12vw;
+  }
+  
+  .hero #video-bg {
+    object-position: 0 30vw;
+  }
+}
+
+
+  .custom-button {
+  background-color: #ffcc00; /* Yellow background color */
+  color: #000000; /* Black text color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  
+
+  /* Center the button horizontally */
+  display: block;
+  margin: 0 auto;
+   transform: translateY(-300px);
+   
+}
+
+/* Hover effect */
+.custom-button:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Increase shadow size on hover */
+}
+
+  
+  </style>
+  
+  
+  
+</head>
+<body>
+
+<!-- Hero section -->
+    <section class="hero d-flex align-items-center justify-content-center">
+      <!-- Video background -->
+      <div class="video-wrap">
+        <video autoplay playsinline loop muted id="video-bg">
+          <source src="https://tactusmarketing.com/wp-content/uploads/tactus-waves-hero.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Gradient overlay -->
+      <div class="position-absolute w-100 gradient-overlay"></div>
+      <!-- Hero content -->
+      <div class="content position-relative text-center mb-5">
+        <h1 class="hero-title blend">Where Performance<br> Meets Style</h1>
+      </div>
+    </section>
+    
+    <!-- Custom cursor -->
+  <div class="custom-cursor"></div>
+  
+  <button class="custom-button">Enter</button>
+
+  
+</body>
+</html>
