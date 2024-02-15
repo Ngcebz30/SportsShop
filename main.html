@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Bar Navigation</title>
+
+ <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Import Google Material Icons stylesheet -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+
+<script src="https://kit.fontawesome.com/6088e89940.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .top-nav {
+      background-color: #000; /* Black background */
+      color: #fff; /* White text color */
+      display: flex;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .logo img {
+      width: 100px; /* Adjust as needed */
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 20;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin-right: 40px;
+    }
+
+    .nav-links li:last-child {
+      margin-right: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+      margin-right: 30px;
+    }
+
+    .nav-links a:hover {
+      color: #00ff00; /* Green color on hover */
+    }
+
+  /* Adjust icon size and color */
+    .material-icons {
+      font-size: 24px;
+      color: white;
+      padding-left: 60px;
+      
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      padding: 55px;
+      background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent black background */
+    }
+
+    .hero-text h1 {
+      font-weight: bold;
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-weight: bold;
+      font-size: 24px;
+    }
+    
+     .shipping-bar {
+      background-color: #ff0000; /* Red background */
+      color: #fff; /* White text color */
+      text-align: center;
+      padding: 10px 0;
+    }
+    
+     .category-section {
+      padding: 50px 0;
+    }
+
+    .category-item {
+      text-align: center;
+    }
+
+    .category-item img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    
+    .benefits-section {
+  background-color: #413975;
+  padding: 40px 0;
+}
+
+.benefit-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  
+}
+
+.benefit-title {
+  font-weight: bold;
+}
+
+.benefit-description {
+  color: #666;
+}
+
+.benefits-section .row {
+  display: flex;
+  justify-content: center;
+}
+
+.benefits-section .col-md-4 {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust width and margin */
+   margin: 0 10px; /* Adjust margin */
+}
+
+.brands-section {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.brands-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adjust the space between brands */
+}
+
+.brand {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust the width of each brand */
+}
+
+.brand img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.newsletter-section {
+  background-color: #004d40; /* Dark green background */
+  color: #fff; /* White font color */
+  padding: 50px;
+  margin: 40px;
+  
+}
+
+.newsletter-section h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 2em;
+  color: #FF7414;
+ 
+}
+
+.newsletter-section p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #CEC7C7;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.newsletter-form button {
+  padding: 10px 20px;
+  background-color: yellow; /* White background for button */
+  color: black /* Dark green font color for button */
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.newsletter-form button:hover {
+  background-color: #fff; /* White background on hover */
+  color: #009688; /* Light green font color on hover */
+}
+
+.newsletter-section p:last-child {
+  font-size: 14px;
+}
+
+.footer {
+  
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 30px;
+  
+}
+
+.footer-social {
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  color: #fff;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #00ff00; /* Green color on hover */
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.footer-copyright {
+  text-align: center;
+}
+
+  </style>
+</head>
+
+<body>
+  <nav class="top-nav">
+    <div class="logo">
+      <img src="https://images.pexels.com/photos/20268998/pexels-photo-20268998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#"><i class="material-icons">search</i></a></li>
+      <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
+      <li><a href="#"><i class="material-icons">contact_support</i></a></li>
+    </ul>
+    
+  <!-- <div class="icons">
+      <li><a href="#"><i class="material-icons">home</i></a></li>
+      <li><a href="#"><i class="material-icons">search</i></a></li>
+      <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
+      <li><a href="#"><i class="material-icons">contact_support</i></a></li>
+    </div>--->
+  </nav>
+  
+   <!-- Red Shipping Bar -->
+  <div class="shipping-bar">
+    Free Shipping on Orders above R999.95
+  </div>
+  
+  <!-- Hero Carousel -->
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://images.pexels.com/photos/3768593/pexels-photo-3768593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+        <div class="hero-text">
+          <h1>Discover What's New</h1>
+          <p>Gear Up for Victory with Our Latest Arrivals</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.pexels.com/photos/20269837/pexels-photo-20269837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+        <div class="hero-text">
+          <h1>Discover What's New</h1>
+          <p>Gear Up for Victory with Our Latest Arrivals</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.pexels.com/photos/20269838/pexels-photo-20269838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+        <div class="hero-text">
+          <h1>Discover What's New</h1>
+          <p>Gear Up for Victory with Our Latest Arrivals</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.pexels.com/photos/20269836/pexels-photo-20269836.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+        <div class="hero-text">
+          <h1>Discover What's New</h1>
+          <p>Gear Up for Victory with Our Latest Arrivals</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Category Section -->
+  <section class="category-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 category-item">
+          <img src="https://images.pexels.com/photos/4376742/pexels-photo-4376742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Women">
+          <p class="font-weight-bold">Women</p>
+        </div>
+        <div class="col-md-3 category-item">
+          <img src="https://images.pexels.com/photos/3799283/pexels-photo-3799283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Men">
+          <p class="font-weight-bold">Men</p>
+        </div>
+        <div class="col-md-3 category-item">
+          <img src="https://images.pexels.com/photos/8336978/pexels-photo-8336978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Kids">
+          <p class="font-weight-bold">Kids</p>
+        </div>
+        <div class="col-md-3 category-item">
+          <img src="https://images.pexels.com/photos/2385477/pexels-photo-2385477.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Footwear">
+          <p class="font-weight-bold">Footwear</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="benefits-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="benefit-box">
+          <p class="benefit-title">More than 60 sports</p>
+          <p class="benefit-description">At Barestep, we’ve been firm believers in the benefits of sports since 1976.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="benefit-box">
+          <p class="benefit-title">Easy returns</p>
+          <p class="benefit-description">All our products come with a 30 days returns policy.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="benefit-box">
+          <p class="benefit-title">Home delivery</p>
+          <p class="benefit-description">Order online and receive your package at home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brands-section">
+  <h2>Our Brands</h2>
+  <div class="brands-container">
+    <div class="brand">
+      <img src="https://images.pexels.com/photos/8176112/pexels-photo-8176112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Brand 1">
+    </div>
+    <!--<div class="brand">
+      <img src="https://images.pexels.com/photos/6540989/pexels-photo-6540989.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Brand 2">
+    </div>-->
+    <div class="brand">
+      <img src="https://images.pexels.com/photos/6205236/pexels-photo-6205236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Brand 3">
+    </div>
+    <div class="brand">
+      <img src="https://images.pexels.com/photos/9550575/pexels-photo-9550575.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Brand 4">
+    </div>
+    <div class="brand">
+      <img src="https://images.pexels.com/photos/14474981/pexels-photo-14474981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Brand 5">
+    </div>
+    <div class="brand">
+      <img src="https://images.pexels.com/photos/6866975/pexels-photo-6866975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Brand 6">
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <h2>SUBSCRIBE TO NEWSLETTER</h2>
+  <p>You’ll also be the first one to hear about our special offers, exclusive deals, coupons, and goodies!</p>
+  <form class="newsletter-form">
+    <input type="email" placeholder="Your Email Address" required>
+    <button type="submit">Subscribe</button>
+  </form>
+  <p>By signing up, you agree to Barestep Privacy Policy.</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-social">
+    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+<a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+
+  </div>
+  <div class="footer-contact">
+    <p>Address: 123 Main Street, Johannesburg, South Africa</p>
+    <p>Phone: +27 11 123 4567</p>
+    <p>Email: info@barestep.co.za</p>
+  </div>
+  <div class="footer-copyright">
+    <p>&copy; 2024 Barestep. All rights reserved.</p>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Activate Carousel
+    $('.carousel').carousel({
+      interval: 2000, // Change slide every 3 seconds
+      pause: false // Do not pause on hover
+    });
+</body>
+</html>
